@@ -1,3 +1,3 @@
-var jQuery: JQueryStatic = require('jquery');
+declare var jQuery:JQueryStatic;
 
 export default jQuery;
