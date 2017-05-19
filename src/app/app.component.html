@@ -1,1 +1,13 @@
-<app-select2></app-select2>
+
+ <form action="" class="aui">
+                <app-select2 [selection]="selected"
+                              [items]="items"
+                              idProperty="value"
+                              labelProperty="label"
+                              [multiple]="false"
+                              (changed)="selected = $event"></app-select2>
+            </form>
+
+            <h4>Selected values</h4>
+
+            <pre>{{selected | json}}</pre>

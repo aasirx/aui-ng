@@ -1,29 +1,29 @@
-import { Component, OnInit,Input, Output, OnChanges, AfterViewInit, ElementRef, SimpleChange, EventEmitter } from '@angular/core';
-import {SelectionStrategy} from './selection-strategy';
-import {MultiSelectionStrategy} from './multi-selection-strategy';
-import {SingleSelectionStrategy} from './single-selection-strategy';
-import {AJS} from '../common/libs/aui';
+import { Component, OnInit, Input, Output, OnChanges, AfterViewInit, ElementRef, SimpleChange, EventEmitter } from '@angular/core';
+import { SelectionStrategy } from './selection-strategy';
+import { MultiSelectionStrategy } from './multi-selection-strategy';
+import { SingleSelectionStrategy } from './single-selection-strategy';
+import { AJS } from '../common/libs/aui';
 
 @Component({
-  selector: 'app-select2',
-  templateUrl: './select2.component.html',
-  styleUrls: ['./select2.component.css']
+    selector: 'app-select2',
+    templateUrl: './select2.component.html',
+    styleUrls: ['./select2.component.css']
 })
 export class Select2Component implements OnInit, AfterViewInit {
 
-   @Input() items: any[];
+    @Input() items: any[];
     @Input() idProperty: string;
     @Input() labelProperty: any;
     @Input() selection: any;
     @Input() multiple: boolean;
-    @Input() useQuery:boolean;
+    @Input() useQuery: boolean;
     @Output() changed: EventEmitter<any> = new EventEmitter<any>();
-    @Output() query:EventEmitter<any> = new EventEmitter<any>();
+    @Output() query: EventEmitter<any> = new EventEmitter<any>();
 
-    private $select2:any;
-    private selectionStrategy:SelectionStrategy;
+    private $select2: any;
+    private selectionStrategy: SelectionStrategy;
 
-    constructor(private elementRef:ElementRef) {
+    constructor(private elementRef: ElementRef) {
     }
 
     ngAfterViewInit() {
@@ -31,7 +31,7 @@ export class Select2Component implements OnInit, AfterViewInit {
         this.updateValue();
     }
 
-    ngOnChanges(changes:{[propertyName:string]:SimpleChange}) {
+    ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
         if (this.$select2 && changes['items'] || changes['idField'] || changes['labelField']) {
             this.init();
         }
@@ -42,6 +42,9 @@ export class Select2Component implements OnInit, AfterViewInit {
         }
     }
 
+    ngOnInit() {
+
+    }
     init() {
         let selectConfig;
 
@@ -69,7 +72,7 @@ export class Select2Component implements OnInit, AfterViewInit {
                     term: query.term,
                     callback: (items) => {
                         this.items = items;
-                        query.callback({results: this.getResultItems()});
+                        query.callback({ results: this.getResultItems() });
                     }
                 });
             };
@@ -85,7 +88,7 @@ export class Select2Component implements OnInit, AfterViewInit {
             return [];
         }
 
-        return this.items.map((item) => ({id: this.getId(item), text: this.getLabel(item)}));
+        return this.items.map((item) => ({ id: this.getId(item), text: this.getLabel(item) }));
     }
 
     getSelectionStrategy(): SelectionStrategy {
@@ -135,7 +138,7 @@ export class Select2Component implements OnInit, AfterViewInit {
         return item[this.labelProperty];
     }
 
-    getId(item:any):string {
+    getId(item: any): string {
         return item[this.idProperty];
     }
 
