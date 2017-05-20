@@ -11,7 +11,7 @@ export class AppComponent {
     selected = {value: 'cs', label: 'CoffeeScript'};
     selected2 = null;
     items = [
-        {value: 'js', label: 'Javascript111'},
+        {value: 'js', label: 'aaa'},
         {value: 'cs', label: 'CoffeeScript'},
         {value: 'elm', label: 'Elm'},
         {value: 'ng', label: 'Angular', version: 2.0},
