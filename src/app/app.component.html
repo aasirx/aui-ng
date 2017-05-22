@@ -1,5 +1,5 @@
 
- <form action="" class="aui">
+<form action="" class="aui">
                 <app-select2 [selection]="selected"
                               [items]="items"
                               idProperty="value"
@@ -7,7 +7,56 @@
                               [multiple]="false"
                               (changed)="selected = $event"></app-select2>
             </form>
-
+ <!--
             <h4>Selected values</h4>
 
             <pre>{{selected | json}}</pre>
+
+<form action="" class="aui">
+                <app-select2 [selection]="selection"
+                              [items]="items"
+                              idProperty="value"
+                              labelProperty="label"
+                              [multiple]="true"
+                              (changed)="selection = $event"></app-select2>
+            </form>
+<h4>Selected values</h4>
+            <pre>{{selection | json}}</pre>
+
+<div class="aui-ng2-flatpack-example">
+
+            <h3>Single select with query</h3>
+
+            <form action="" class="aui">
+                <app-select2 [selection]="selected2"
+                              idProperty="value"
+                              labelProperty="label"
+                              [multiple]="false"
+                              [useQuery]="true"
+                              (query)="onQuery($event)"
+                              (changed)="selected2 = $event"></app-select2>
+            </form>
+
+            <h4>Selected value</h4>
+
+            <pre>{{selected2 | json}}</pre>
+        </div>-->
+
+<div class="aui-ng2-flatpack-example">
+
+            <h3>Multi select with query</h3>
+
+            <form action="" class="aui">
+                <app-select2 [selection]="selection2"
+                              idProperty="value"
+                              labelProperty="label"
+                              [multiple]="true"
+                              [useQuery]="true"
+                              (query)="onQuery($event)"
+                              (changed)="selection2 = $event"></app-select2>
+            </form>
+
+            <h4>Selected values</h4>
+
+            <pre>{{selection2 | json}}</pre>
+        </div>

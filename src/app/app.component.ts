@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-
+declare var $:any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selection = [{value: 'js', label: 'Javascript111'}];
+  selection = [{value: 'js', label: 'Javascript'}];
     selection2 = [];
     selected = {value: 'cs', label: 'CoffeeScript'};
     selected2 = null;
     items = [
-        {value: 'js', label: 'aaa'},
+        {value: 'js', label: 'JavaScript'},
         {value: 'cs', label: 'CoffeeScript'},
         {value: 'elm', label: 'Elm'},
         {value: 'ng', label: 'Angular', version: 2.0},

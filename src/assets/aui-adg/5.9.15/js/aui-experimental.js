@@ -10502,11 +10502,12 @@
               markup.push(escapeMarkup(text));
               return;
           }
-  
+          markup.push("<input type='checkbox' tabindex='-1'>   ");
           markup.push(escapeMarkup(text.substring(0, match)));
           markup.push("<span class='select2-match'>");
           markup.push(escapeMarkup(text.substring(match, match + tl)));
           markup.push("</span>");
+          
           markup.push(escapeMarkup(text.substring(match + tl, text.length)));
       }
   
@@ -11013,7 +11014,7 @@
                               if (compound) { node.addClass("select2-result-with-children"); }
                               node.addClass(self.opts.formatResultCssClass(result));
   
-                              label=$(document.createElement("div"));
+                              label=$(document.createElement("label"));
                               label.addClass("select2-result-label");
   
                               formatted=opts.formatResult(result, label, query, self.opts.escapeMarkup);

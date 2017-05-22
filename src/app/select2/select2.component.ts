@@ -3,6 +3,7 @@ import { SelectionStrategy } from './selection-strategy';
 import { MultiSelectionStrategy } from './multi-selection-strategy';
 import { SingleSelectionStrategy } from './single-selection-strategy';
 import { AJS } from '../common/libs/aui';
+declare var $:any;
 
 @Component({
     selector: 'app-select2',
@@ -76,8 +77,7 @@ export class Select2Component implements OnInit, AfterViewInit {
                     }
                 });
             };
-        }
-
+        };
         this.$select2 = AJS.$(this.elementRef.nativeElement).find('.select2').auiSelect2(selectConfig);
 
         this.$select2.on('change', this.updateSelection.bind(this));
